@@ -29,7 +29,7 @@ public class CustomerController {
 
 
     @PostMapping("/api/buchi/addCustomer")
-    public ListCustomerOut addCustomer(Customer customer) {
+    public  ListCustomerOut addCustomer(@Valid @RequestBody Customer customer) {
         return customerManagementService.addCustomer(customer);
     }
     @GetMapping("/api/buchi/listCustomer")

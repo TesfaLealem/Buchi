@@ -3,6 +3,7 @@ package com.yet.buchi.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -26,7 +27,8 @@ public class Adoption {
     @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date requestDate;
 
 

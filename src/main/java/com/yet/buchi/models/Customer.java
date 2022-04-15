@@ -12,17 +12,17 @@ import javax.validation.constraints.Size;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "companyprofile")
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @Column(name = "name", nullable = false)
     @Size(max = 50)
     private String name;
 
-    @NotBlank
+    @Column(name = "phone", nullable = false)
     @Size(max = 255)
     private String phone;
 

@@ -4,9 +4,11 @@ package com.yet.buchi.Services;
 import com.yet.buchi.DTOs.ResponseDTOs.ListCustomerOut;
 import com.yet.buchi.Utilities.StatusInit;
 import com.yet.buchi.models.Customer;
+import com.yet.buchi.payload.response.MessageResponse;
 import com.yet.buchi.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,16 +24,17 @@ public class CustomerManagementService {
 
         ListCustomerOut listCustomerOut = new ListCustomerOut();
 
-        if(customerRepository.existsByPhone(customer.getPhone())){
-            Customer customerByPhone = customerRepository.findCustomerByPhone(customer.getPhone());
-            Customer customerById = customerRepository.findCustomerById(customerByPhone.getId());
+        Customer customerByPhone1 = customerRepository.findCustomerByPhone(customer.getPhone());
+
+        if(customerByPhone1 !=null){
             listCustomerOut.setStatus(statusInit.successful());
-            listCustomerOut.setCustomerId(customerById.getId());
+            listCustomerOut.setCustomerId(customerByPhone1.getId());
         }
         else {
+
             Customer customer1 = new Customer();
-            customer1.setName(customer.getName());
             customer1.setPhone(customer.getPhone());
+            customer1.setName(customer.getName());
             customerRepository.save(customer1);
             listCustomerOut.setStatus(statusInit.successful());
             listCustomerOut.setCustomerId(customer1.getId());

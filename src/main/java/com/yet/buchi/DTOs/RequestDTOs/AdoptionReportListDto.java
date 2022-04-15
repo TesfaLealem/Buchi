@@ -15,7 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 
 public class AdoptionReportListDto {
-    private List<AdoptedPetTypeDto> adoptedPetTypeDtos;
-    private List<WeeklyAdoptionRequestDto> weeklyAdoptionRequestDtos;
+    private AdoptedPetTypeDto adoptedPetTypeDto;
+    private WeeklyAdoptionRequestDto weeklyAdoptionRequestDto;
     private Status status;
+
 }

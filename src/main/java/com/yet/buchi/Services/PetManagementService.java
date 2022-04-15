@@ -72,7 +72,7 @@ public class PetManagementService {
 
         if (!petRepositoryAll.isEmpty()) {
             petListDto.setPetDtos(petConvertor.toPetDtoList(petRepositoryAll));
-            petListDto.setCount(petRepository.count());
+            petListDto.setCount(petRepositoryAll.size());
             petListDto.setStatus(statusInit.successful());
         }
         else {
