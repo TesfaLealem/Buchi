@@ -10,7 +10,11 @@ import com.yet.buchi.models.Pet;
 import com.yet.buchi.payload.response.MessageResponse;
 import com.yet.buchi.repository.PetRepository;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -61,13 +65,20 @@ public class PetManagementService {
     public PetListDto listPet(PetListIn petListIn) {
 
         PetListDto petListDto = new PetListDto();
-        List<Pet> petRepositoryAll = petRepository.searchPets(petListIn.getType(),petListIn.getGender(),
-                petListIn.getSize(),petListIn.getAge());
+
+        Pageable limit = PageRequest.of(1, petListIn.getLimit());
+
+        PageRequest pageRequest = PageRequest.of(0,petListIn.getLimit());
+      //  List<User> result = repository.findByUsername("Matthews", topTen);
+        List<Pet> petRepositoryAll = petRepository.searchPets(petListIn.getType(),pageRequest);
         String url = "https://api.petfinder.com/v2/animals";
         RestTemplate restTemplate = new RestTemplate();
-        Object[] animals = restTemplate.getForObject(url, Object[].class);
+        //Object[] animals = restTemplate.getForObject(url, Object[].class);
 
-        List<Object> objectList = Arrays.asList(animals);
+        //List<Pet> pets = new ArrayList<>();
+        //pets.add(3,petRepositoryAll.get(petListIn.getLimit()));
+
+//        List<Object> objectList = Arrays.asList(animals);
 
 
         if (!petRepositoryAll.isEmpty()) {

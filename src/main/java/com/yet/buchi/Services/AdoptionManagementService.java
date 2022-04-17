@@ -99,7 +99,6 @@ public class AdoptionManagementService {
         week4=new SimpleDateFormat("yyyy-MM-dd").parse(fourthWeek);
         last=new SimpleDateFormat("yyyy-MM-dd").parse(lastDay);
         if (!allBetweenDates.isEmpty()) {
-            //List<AdoptedPetTypeDto> adoptedPetTypeDtos = adoptionConvertor.toAdoptedPetTypeDtoList(allBetweenDates);
             int dogAmount =0;
             int catAmount =0;
             int weekOneAmount =0;
