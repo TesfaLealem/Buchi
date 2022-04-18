@@ -18,7 +18,7 @@ public interface AdoptionRepository extends JpaRepository<Adoption, Long> {
     @Query("select a from Adoption a  where a.id in :adoptionId")
     public Adoption findAdoptionById(@Param("adoptionId") Long adoptionId);
 
-    @Query(value = "from Adoption a where requestDate BETWEEN :startDate AND :endDate")
+    @Query(value = "from Adoption a where requestDate BETWEEN :startDate AND :endDate ORDER BY id ASC")
     public List<Adoption> getAllBetweenDates(@Param("startDate") Date startDate, @Param("endDate")Date endDate);
 }
 
