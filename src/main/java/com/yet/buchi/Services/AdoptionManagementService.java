@@ -6,7 +6,6 @@ import com.yet.buchi.DTOs.RequestDTOs.AdoptionListIn;
 import com.yet.buchi.DTOs.RequestDTOs.AdoptionRegistrationIn;
 import com.yet.buchi.DTOs.RequestDTOs.AdoptionReportListDto;
 import com.yet.buchi.DTOs.ResponseDTOs.ListAdoptionOut;
-import com.yet.buchi.DTOs.ResponseDTOs.ListCustomerOut;
 import com.yet.buchi.DTOs.RestData.AdoptedPetTypeDto;
 import com.yet.buchi.DTOs.RestData.WeeklyAdoptionRequestDto;
 import com.yet.buchi.Utilities.StatusInit;

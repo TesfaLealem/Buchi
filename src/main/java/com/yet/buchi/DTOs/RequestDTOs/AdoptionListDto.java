@@ -1,7 +1,6 @@
 package com.yet.buchi.DTOs.RequestDTOs;
 
 import com.yet.buchi.DTOs.RestData.AdoptionDto;
-import com.yet.buchi.DTOs.RestData.PetDto;
 import com.yet.buchi.Utilities.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -4,11 +4,9 @@ package com.yet.buchi.Services;
 import com.yet.buchi.DTOs.ResponseDTOs.ListCustomerOut;
 import com.yet.buchi.Utilities.StatusInit;
 import com.yet.buchi.models.Customer;
-import com.yet.buchi.payload.response.MessageResponse;
 import com.yet.buchi.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
