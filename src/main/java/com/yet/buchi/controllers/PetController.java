@@ -34,16 +34,16 @@ public class PetController {
         return petManagementService.listPet(petListIn);
     }
 
-    @GetMapping("/api/buchi/animals")
-    public ResponseEntity  getAnimals() throws JSONException {
-        String url = "https://api.petfinder.com/v2/animals";
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        headers.setBearerAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJnVDdReVh3aklTZDJxaVZCUkRSTE5FNTQ0akltVEFWT25zb2Fpb0w5cU1NaGpWdWY3dSIsImp0aSI6IjNkZjNjOWQxOTUzZDFhODBkNTZiNDJkMmM5OWI0MGZiZDIxYzRhMGRiODdmNGM1NjQ5YTRkYTY3MTYyMWI3MmY5ZDIwNTNmODg1ZDk5YjgzIiwiaWF0IjoxNjUwMzQ4MDgyLCJuYmYiOjE2NTAzNDgwODIsImV4cCI6MTY1MDM1MTY4Miwic3ViIjoiIiwic2NvcGVzIjpbXX0.kLKLHGHLwRsBpAWlLinpF-xsZWuUYUX8lmxfhte-dSJQbU0S825CXwHZAkTIQCan1OyhahtwoQiP7n3z1BBEUrdLTIA9wPlhB8ym5tE0OCPvnsFF9ur3JfSjelNyfZsns-4TfASUjDb2gA2zJMvkRp4L5S7WupImu53_l0EX3Bpl0Y4P-fm-wKWqancuuAeBzKY8ivr9vzqfpr59nI26cjMJZB7acZ-HxSHaYNwrePFhr4edpLeJIfXRi6stQH8xRn-pb93NKn9RQgRCcK21kGsJDgFz0aozXoEv6TuYkhh5LaqY0vFShrmGupICqp-CEWYA855uNz35jTTp9jArXg");
-        HttpEntity<String> entity =  new HttpEntity<>("parameters", headers);
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-        return exchange;
-    }
+//    @GetMapping("/api/buchi/animals")
+//    public ResponseEntity  getAnimals() throws JSONException {
+//        String url = "https://api.petfinder.com/v2/animals";
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+//        headers.setBearerAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJnVDdReVh3aklTZDJxaVZCUkRSTE5FNTQ0akltVEFWT25zb2Fpb0w5cU1NaGpWdWY3dSIsImp0aSI6IjNkZjNjOWQxOTUzZDFhODBkNTZiNDJkMmM5OWI0MGZiZDIxYzRhMGRiODdmNGM1NjQ5YTRkYTY3MTYyMWI3MmY5ZDIwNTNmODg1ZDk5YjgzIiwiaWF0IjoxNjUwMzQ4MDgyLCJuYmYiOjE2NTAzNDgwODIsImV4cCI6MTY1MDM1MTY4Miwic3ViIjoiIiwic2NvcGVzIjpbXX0.kLKLHGHLwRsBpAWlLinpF-xsZWuUYUX8lmxfhte-dSJQbU0S825CXwHZAkTIQCan1OyhahtwoQiP7n3z1BBEUrdLTIA9wPlhB8ym5tE0OCPvnsFF9ur3JfSjelNyfZsns-4TfASUjDb2gA2zJMvkRp4L5S7WupImu53_l0EX3Bpl0Y4P-fm-wKWqancuuAeBzKY8ivr9vzqfpr59nI26cjMJZB7acZ-HxSHaYNwrePFhr4edpLeJIfXRi6stQH8xRn-pb93NKn9RQgRCcK21kGsJDgFz0aozXoEv6TuYkhh5LaqY0vFShrmGupICqp-CEWYA855uNz35jTTp9jArXg");
+//        HttpEntity<String> entity =  new HttpEntity<>("parameters", headers);
+//        RestTemplate restTemplate = new RestTemplate();
+//        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+//        return exchange;
+//    }
 
 }
