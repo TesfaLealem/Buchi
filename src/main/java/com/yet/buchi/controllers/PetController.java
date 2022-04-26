@@ -56,7 +56,6 @@ public class PetController {
 //        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 //        return exchange;
 //    }
-
     @GetMapping("/{filePath}")
     public ResponseEntity<byte[]> getImage(String filePath) {
         byte[] image = new byte[0];
