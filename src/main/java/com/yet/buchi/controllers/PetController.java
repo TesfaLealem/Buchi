@@ -1,8 +1,16 @@
 package com.yet.buchi.controllers;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.commons.io.FileUtils;
 import com.yet.buchi.DTOs.RequestDTOs.PetListDto;
 import com.yet.buchi.DTOs.RequestDTOs.PetListIn;
 import com.yet.buchi.DTOs.ResponseDTOs.ListPetOut;
 import com.yet.buchi.Services.PetManagementService;
+import com.yet.buchi.models.Age;
+import com.yet.buchi.models.ApiModels.Animal;
+import com.yet.buchi.models.ApiModels.AnimalList;
+import com.yet.buchi.models.ApiModels.Photo;
 import com.yet.buchi.models.Pet;
 
 import io.swagger.annotations.Api;
@@ -14,7 +22,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -34,7 +45,7 @@ public class PetController {
         return petManagementService.listPet(petListIn);
     }
 
-//    @GetMapping("/api/buchi/animals")
+    //    @GetMapping("/api/buchi/animals")
 //    public ResponseEntity  getAnimals() throws JSONException {
 //        String url = "https://api.petfinder.com/v2/animals";
 //        HttpHeaders headers = new HttpHeaders();
@@ -45,5 +56,22 @@ public class PetController {
 //        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 //        return exchange;
 //    }
+
+    @GetMapping("/{filePath}")
+    public ResponseEntity<byte[]> getImage(String filePath) {
+        byte[] image = new byte[0];
+        Path currentRelativePath = Paths.get("");
+        String currentWorkingDirectory = currentRelativePath.toAbsolutePath().toString();
+        String imageDirectory = filePath;
+
+        try {
+
+            image = FileUtils.readFileToByteArray(new File(currentWorkingDirectory + imageDirectory));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(image);
+    }
 
 }
